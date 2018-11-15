@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.aside`
   height: 100%;
   width: 250px;
-  background: #fff;
-  color: #101010;
-  float: right;
+  background: #2e3d49;
+  color: #979ea4;
+  float: left;
   display: flex;
   flex-direction: column;
-  border: 1px solid #e0e0e0;
+  border: 0px;
 
   div {
     padding: 10px 25px;
@@ -26,16 +26,13 @@ export const Container = styled.aside`
 export const NewPost = styled.button`
   background: transparent;
   border: 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
   font-size: 16px;
-  color: #101010;
+  color: #979ea4;
   display: flex;
   align-items: center;
-  padding: 15px 25px;
 
   &:hover {
-    color: #8b4513;
+    color: #fff;
   }
 
   i {
@@ -45,6 +42,7 @@ export const NewPost = styled.button`
 
 export const Nav = styled.ul`
   list-style: none;
+  margin-top: 5px;
   li {
     a {
       color: inherit;
@@ -53,8 +51,15 @@ export const Nav = styled.ul`
       line-height: 32px;
 
       &:hover {
-        color: #8b4513;
+        color: #fff;
       }
+    }
+
+    span {
+      font-size: 11px;
+      text-transform: uppercase;
+      line-height: 22px;
+      font-weight: bold;
     }
   }
 `;
