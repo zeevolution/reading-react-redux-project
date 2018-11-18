@@ -15,6 +15,7 @@ export const Container = styled.aside`
 
     @media (max-width: 460px) {
       width: 125px;
+      padding: 10px 10px;
     }
   }
 
