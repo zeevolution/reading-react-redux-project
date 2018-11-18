@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const Title = styled.h3`
   font-weight: 300;
+  padding-bottom: 5px;
   border-bottom: 0.3px solid #979ea1;
 `;
 

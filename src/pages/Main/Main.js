@@ -17,7 +17,7 @@ import {
 
 const Main = () => (
   <Container>
-    <Title>Posts by Vote Score</Title>
+    <Title> List of Posts by VoteScore: </Title>
     <Posts>
       <PostGrid>
         <li>
