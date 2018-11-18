@@ -5,11 +5,11 @@ export const Container = styled.header`
   justify-content: space-between;
   background: #1c262f;
   text-align: center;
-  height: 44px;
+  height: 58px;
 
   h3 {
     font-weight: 200;
-    margin: 10px;
+    margin: 15px;
     color: white;
   }
 `;

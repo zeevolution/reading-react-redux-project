@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.aside`
   height: 100%;
-  width: 250px;
+  width: 300px;
   background: #2e3d49;
   color: #979ea4;
   float: left;
@@ -31,6 +31,7 @@ export const NewPost = styled.button`
   color: #979ea4;
   display: flex;
   width: 100%;
+  margin-top: 10px;
   align-items: center;
 
   &:hover {
@@ -67,5 +68,6 @@ export const Nav = styled.ul`
 `;
 
 export const Divider = styled.hr`
+  margin-top: 10px;
   border: 0.3px solid #979ea1;
 `;
