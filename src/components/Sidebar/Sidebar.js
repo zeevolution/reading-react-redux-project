@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, NewPost, Nav } from "./SidebarStyle";
+import { Container, NewPost, Nav, Divider } from "./SidebarStyle";
 
 const Sidebar = () => (
   <Container>
@@ -12,6 +12,7 @@ const Sidebar = () => (
         </NewPost>
       </Nav>
     </div>
+    <Divider />
     <div>
       <Nav>
         <li>

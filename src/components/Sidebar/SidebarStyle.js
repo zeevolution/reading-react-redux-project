@@ -29,6 +29,7 @@ export const NewPost = styled.button`
   font-size: 16px;
   color: #979ea4;
   display: flex;
+  width: 100%;
   align-items: center;
 
   &:hover {
@@ -62,4 +63,8 @@ export const Nav = styled.ul`
       font-weight: bold;
     }
   }
+`;
+
+export const Divider = styled.hr`
+  border: 0.3px solid #979ea1;
 `;
