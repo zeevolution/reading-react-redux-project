@@ -8,7 +8,8 @@ export const Container = styled.header`
   height: 58px;
 
   h3 {
-    font-weight: 200;
+    font-weight: 300;
+    font-size: 24px;
     margin: 15px;
     color: white;
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
 import "./styles/global";
 
@@ -7,15 +8,20 @@ import Header from "./components/Header/Header";
 
 import { Wrapper, Container, Content } from "./styles/components";
 
+import Routes from "./routes";
+
 const App = () => (
-  <Wrapper>
-    <Container>
-      <Sidebar />
-      <Content>
-        <Header />
-      </Content>
-    </Container>
-  </Wrapper>
+  <BrowserRouter>
+    <Wrapper>
+      <Container>
+        <Sidebar />
+        <Content>
+          <Header />
+          <Routes />
+        </Content>
+      </Container>
+    </Wrapper>
+  </BrowserRouter>
 );
 
 export default App;

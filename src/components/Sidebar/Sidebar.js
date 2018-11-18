@@ -29,7 +29,10 @@ const Sidebar = () => (
           <span>Filter by</span>
         </li>
         <li>
-          <a href="">Filter 1</a>
+          <a href="">Vote Score</a>
+        </li>
+        <li>
+          <a href="">Date</a>
         </li>
       </Nav>
     </div>
