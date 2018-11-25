@@ -25,5 +25,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "reactotron-react-js": "^2.1.1",
+    "reactotron-redux": "^2.1.0",
+    "reactotron-redux-saga": "^2.1.0"
+  }
 }
