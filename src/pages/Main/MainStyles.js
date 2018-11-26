@@ -30,7 +30,7 @@ export const PostGrid = styled.ol`
   }
 `;
 
-export const Post = styled.a`
+export const Post = styled.div`
   display: inline-block;
   flex-direction: row;
   margin-left: 20px;

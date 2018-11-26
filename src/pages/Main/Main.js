@@ -1,4 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
+
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as PostsActions } from "../../store/ducks/posts";
 
 import {
   Container,
@@ -15,42 +21,54 @@ import {
   PostVote
 } from "./MainStyles";
 
-const Main = () => (
-  <Container>
-    <Title> List of Posts by VoteScore: </Title>
-    <Posts>
-      <PostGrid>
-        <li>
-          <Post href="">
-            <PostCategory>Category</PostCategory>
-            <PostTitle>
-              <h2>The 2018 Web Developer Roadmap</h2>
-            </PostTitle>
-            <PostAuthors>by Author</PostAuthors>
-          </Post>
-          <PostDetails>
-            <PostDate> 5 Nov </PostDate>
-            <PostComments>50 comments</PostComments>
-            <PostVote>Votos</PostVote>
-          </PostDetails>
-        </li>
-        <li>
-          <Post href="">
-            <PostCategory>Category</PostCategory>
-            <PostTitle>
-              <h2>How To Learn Data Science If You’re Broke</h2>
-            </PostTitle>
-            <PostAuthors>by Author</PostAuthors>
-          </Post>
-          <PostDetails>
-            <PostDate> 5 Nov </PostDate>
-            <PostComments>50 comments</PostComments>
-            <PostVote>Votos</PostVote>
-          </PostDetails>
-        </li>
-      </PostGrid>
-    </Posts>
-  </Container>
-);
+class Main extends Component {
+  componentDidMount() {
+    this.props.getPostsRequest();
+  }
 
-export default Main;
+  render() {
+    return (
+      <Container>
+        <Title> List of Posts by VoteScore: </Title>
+        <Posts>
+          <PostGrid>
+            {this.props.posts.data.map(post => (
+              <li key={post.id}>
+                <Link to={`${post.category}/${post.id}`}>
+                  <Post>
+                    <PostCategory>{post.category}</PostCategory>
+                    <PostTitle>
+                      <h2>{post.title}</h2>
+                    </PostTitle>
+                    <PostAuthors>by {post.author}</PostAuthors>
+                  </Post>
+                </Link>
+                <PostDetails>
+                  <PostDate>
+                    <Moment format="MMM DD YYYY">
+                      {new Date(post.timestamp).toString()}
+                    </Moment>
+                  </PostDate>
+                  <PostComments>{post.commentCount} comments</PostComments>
+                  <PostVote>{post.voteScore} votes</PostVote>
+                </PostDetails>
+              </li>
+            ))}
+          </PostGrid>
+        </Posts>
+      </Container>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  posts: state.posts
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PostsActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);
