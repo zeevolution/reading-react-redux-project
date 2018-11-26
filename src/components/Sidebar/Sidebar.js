@@ -27,31 +27,22 @@ class Sidebar extends Component {
         <div>
           <Nav>
             <li>
-              <span>Categories</span>
+              <Link to="/">All Posts</Link>
             </li>
-            {this.props.categories.data.length
-              ? this.props.categories.data.map(category => (
-                  <li>
-                    <Link to={`${category.path}`}>{category.name}</Link>
-                  </li>
-                ))
-              : ""}
           </Nav>
         </div>
         <div>
           <Nav>
             <li>
-              <span>Filters</span>
+              <span>Categories</span>
             </li>
-            <li>
-              <Link to="/">All</Link>
-            </li>
-            <li>
-              <a href="">VoteScore</a>
-            </li>
-            <li>
-              <a href="">Date</a>
-            </li>
+            {this.props.categories.data.length
+              ? this.props.categories.data.map(category => (
+                  <li key={category.id}>
+                    <Link to={`${category.path}`}>{category.name}</Link>
+                  </li>
+                ))
+              : ""}
           </Nav>
         </div>
       </Container>

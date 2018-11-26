@@ -45,7 +45,6 @@ export const NewPost = styled.button`
 
 export const Nav = styled.ul`
   list-style: none;
-  margin-top: 5px;
   li {
     a {
       color: inherit;
