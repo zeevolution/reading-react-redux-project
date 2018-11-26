@@ -23,7 +23,18 @@ import {
 
 class Main extends Component {
   componentDidMount() {
-    this.props.getPostsRequest();
+    this.loadPosts();
+  }
+
+  loadPosts() {
+    const { id } = this.props.match.params;
+
+    //Check if it's a post request by id.
+    if (id) {
+      this.props.getPostsRequestByCategory(id);
+    } else {
+      this.props.getPostsRequest();
+    }
   }
 
   render() {
@@ -32,30 +43,36 @@ class Main extends Component {
         <Title> List of Posts by VoteScore: </Title>
         <Posts>
           <PostGrid>
-            {this.props.posts.data.length
-              ? this.props.posts.data.map(post => (
-                  <li key={post.id}>
-                    <Link to={`${post.category}/${post.id}`}>
-                      <Post>
-                        <PostCategory>{post.category}</PostCategory>
-                        <PostTitle>
-                          <h2>{post.title}</h2>
-                        </PostTitle>
-                        <PostAuthors>by {post.author}</PostAuthors>
-                      </Post>
-                    </Link>
-                    <PostDetails>
-                      <PostDate>
-                        <Moment format="MMM DD YYYY">
-                          {new Date(post.timestamp).toString()}
-                        </Moment>
-                      </PostDate>
-                      <PostComments>{post.commentCount} comments</PostComments>
-                      <PostVote>{post.voteScore} votes</PostVote>
-                    </PostDetails>
-                  </li>
-                ))
-              : ""}
+            {this.props.posts.data.length ? (
+              this.props.posts.data.map(post => (
+                <li key={post.id}>
+                  <Link to={`${post.category}/${post.id}`}>
+                    <Post>
+                      <PostCategory>{post.category}</PostCategory>
+                      <PostTitle>
+                        <h2>{post.title}</h2>
+                      </PostTitle>
+                      <PostAuthors>by {post.author}</PostAuthors>
+                    </Post>
+                  </Link>
+                  <PostDetails>
+                    <PostDate>
+                      <Moment format="MMM DD YYYY">
+                        {new Date(post.timestamp).toString()}
+                      </Moment>
+                    </PostDate>
+                    <PostComments>{post.commentCount} comments</PostComments>
+                    <PostVote>{post.voteScore} votes</PostVote>
+                  </PostDetails>
+                </li>
+              ))
+            ) : (
+              <li>
+                <PostTitle>
+                  <h2>No Posts Found</h2>
+                </PostTitle>
+              </li>
+            )}
           </PostGrid>
         </Posts>
       </Container>

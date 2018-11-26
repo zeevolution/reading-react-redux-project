@@ -1,10 +1,12 @@
 import React from "react";
 
-import { Container } from "./HeaderStyle";
+import { Container, StyledLink } from "./HeaderStyle";
 
 const Header = () => (
   <Container>
-    <h3>My Readable</h3>
+    <StyledLink to="/">
+      <h3>My Readable</h3>
+    </StyledLink>
   </Container>
 );
 

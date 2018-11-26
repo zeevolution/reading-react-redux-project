@@ -38,7 +38,7 @@ class Sidebar extends Component {
             </li>
             {this.props.categories.data.length
               ? this.props.categories.data.map(category => (
-                  <li key={category.id}>
+                  <li key={category.name}>
                     <Link to={`${category.path}`}>{category.name}</Link>
                   </li>
                 ))

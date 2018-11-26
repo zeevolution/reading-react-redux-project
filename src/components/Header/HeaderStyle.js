@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
@@ -13,4 +15,12 @@ export const Container = styled.header`
     margin: 15px;
     color: white;
   }
+
+  &:hover h3 {
+    opacity: 0.4;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

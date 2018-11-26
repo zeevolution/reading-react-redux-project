@@ -12,3 +12,13 @@ export function* getPosts() {
     console.log(err);
   }
 }
+
+export function* getPostsByCategory(action) {
+  try {
+    const response = yield call(api.get, `${action.payload.id}/posts`);
+
+    yield put(PostsActions.getPostsSuccessByCategory(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+}
