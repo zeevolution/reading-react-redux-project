@@ -32,28 +32,30 @@ class Main extends Component {
         <Title> List of Posts by VoteScore: </Title>
         <Posts>
           <PostGrid>
-            {this.props.posts.data.map(post => (
-              <li key={post.id}>
-                <Link to={`${post.category}/${post.id}`}>
-                  <Post>
-                    <PostCategory>{post.category}</PostCategory>
-                    <PostTitle>
-                      <h2>{post.title}</h2>
-                    </PostTitle>
-                    <PostAuthors>by {post.author}</PostAuthors>
-                  </Post>
-                </Link>
-                <PostDetails>
-                  <PostDate>
-                    <Moment format="MMM DD YYYY">
-                      {new Date(post.timestamp).toString()}
-                    </Moment>
-                  </PostDate>
-                  <PostComments>{post.commentCount} comments</PostComments>
-                  <PostVote>{post.voteScore} votes</PostVote>
-                </PostDetails>
-              </li>
-            ))}
+            {this.props.posts.data.length
+              ? this.props.posts.data.map(post => (
+                  <li key={post.id}>
+                    <Link to={`${post.category}/${post.id}`}>
+                      <Post>
+                        <PostCategory>{post.category}</PostCategory>
+                        <PostTitle>
+                          <h2>{post.title}</h2>
+                        </PostTitle>
+                        <PostAuthors>by {post.author}</PostAuthors>
+                      </Post>
+                    </Link>
+                    <PostDetails>
+                      <PostDate>
+                        <Moment format="MMM DD YYYY">
+                          {new Date(post.timestamp).toString()}
+                        </Moment>
+                      </PostDate>
+                      <PostComments>{post.commentCount} comments</PostComments>
+                      <PostVote>{post.voteScore} votes</PostVote>
+                    </PostDetails>
+                  </li>
+                ))
+              : ""}
           </PostGrid>
         </Posts>
       </Container>
