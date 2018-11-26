@@ -38,9 +38,11 @@ class Main extends Component {
   }
 
   render() {
+    const { id } = this.props.match.params;
+
     return (
       <Container>
-        <Title> List of Posts by VoteScore: </Title>
+        <Title> {id ? `Posts in ${id} Category` : "All Posts"} </Title>
         <Posts>
           <PostGrid>
             {this.props.posts.data.length ? (
