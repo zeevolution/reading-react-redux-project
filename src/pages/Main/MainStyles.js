@@ -7,10 +7,15 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled.h3`
-  font-weight: 300;
-  padding-bottom: 5px;
+export const Title = styled.div`
+  display: flex;
   border-bottom: 0.3px solid #979ea1;
+  h3 {
+    font-weight: 300;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+  }
 `;
 
 export const Posts = styled.div`
@@ -91,4 +96,16 @@ export const PostVote = styled.div`
   margin-right: 10px;
   font-size: 14px;
   color: #999;
+`;
+
+export const OrderByVoteScore = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: #1c262f;
+  color: #fff;
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 0.25em;
+  border: 2px solid #1c262f;
+  border-radius: 3px;
 `;

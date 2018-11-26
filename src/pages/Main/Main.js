@@ -18,7 +18,8 @@ import {
   PostDetails,
   PostDate,
   PostComments,
-  PostVote
+  PostVote,
+  OrderByVoteScore
 } from "./MainStyles";
 
 class Main extends Component {
@@ -42,7 +43,12 @@ class Main extends Component {
 
     return (
       <Container>
-        <Title> {id ? `Posts in ${id} Category` : "All Posts"} </Title>
+        <Title>
+          <h3>{id ? `Posts in ${id} Category` : "All Posts"}:</h3>
+        </Title>
+        <div>
+          <OrderByVoteScore>Order by Vote Score</OrderByVoteScore>
+        </div>
         <Posts>
           <PostGrid>
             {this.props.posts.data.length ? (
