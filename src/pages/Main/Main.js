@@ -28,23 +28,23 @@ class Main extends Component {
   }
 
   loadPosts() {
-    const { id } = this.props.match.params;
+    const { category } = this.props.match.params;
 
     //Check if it's a post request by id.
-    if (id) {
-      this.props.getPostsRequestByCategory(id);
+    if (category) {
+      this.props.getPostsRequestByCategory(category);
     } else {
       this.props.getPostsRequest();
     }
   }
 
   render() {
-    const { id } = this.props.match.params;
+    const { category } = this.props.match.params;
 
     return (
       <Container>
         <Title>
-          <h3>{id ? `Posts in ${id} Category` : "All Posts"}:</h3>
+          <h3>{category ? `Posts in ${category} Category` : "All Posts"}:</h3>
         </Title>
         <div>
           <OrderByVoteScore>Order by Vote Score</OrderByVoteScore>
@@ -54,7 +54,12 @@ class Main extends Component {
             {this.props.posts.data.length ? (
               this.props.posts.data.map(post => (
                 <li key={post.id}>
-                  <Link to={`${post.category}/${post.id}`}>
+                  <Link
+                    to={{
+                      pathname: `${post.category}/${post.id}`,
+                      state: { post: post }
+                    }}
+                  >
                     <Post>
                       <PostCategory>{post.category}</PostCategory>
                       <PostTitle>
