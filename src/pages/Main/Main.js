@@ -19,6 +19,7 @@ import {
   PostDate,
   PostComments,
   PostVote,
+  ButtonGroup,
   OrderByVoteScore
 } from "./MainStyles";
 
@@ -46,9 +47,9 @@ class Main extends Component {
         <Title>
           <h3>{category ? `Posts in ${category} Category` : "All Posts"}:</h3>
         </Title>
-        <div>
+        <ButtonGroup>
           <OrderByVoteScore>Order by Vote Score</OrderByVoteScore>
-        </div>
+        </ButtonGroup>
         <Posts>
           <PostGrid>
             {this.props.posts.data.length ? (
@@ -57,7 +58,7 @@ class Main extends Component {
                   <Link
                     to={{
                       pathname: `${post.category}/${post.id}`,
-                      state: { post: post }
+                      post: { post }
                     }}
                   >
                     <Post>

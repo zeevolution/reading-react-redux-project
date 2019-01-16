@@ -98,14 +98,18 @@ export const PostVote = styled.div`
   color: #999;
 `;
 
+export const ButtonGroup = styled.div`
+  text-align: right;
+`;
+
 export const OrderByVoteScore = styled.button`
   /* Adapt the colors based on primary prop */
   background: #1c262f;
   color: #fff;
 
   font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 0.25em;
+  margin: 0.1em;
+  padding: 5px 10px;
   border: 2px solid #1c262f;
   border-radius: 3px;
 `;
