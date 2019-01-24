@@ -11,6 +11,6 @@ Fresh App's Instalation:
   - node server
 - Clone this repo: git clone https://github.com/joselimaneto/reading-react-redux-project.git
   - Run `npm install` for npm_modules
-  - Start the app by runnign `npm start`
+  - Start the app by running `npm start`
 
 The project is part of my portfolio as a React Developer and it was was a code-along with the React Nanodegree program from Udacity I took in 2018.
